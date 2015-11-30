@@ -4,24 +4,33 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import co.chimeralabs.advertiser.client.apiDTO.AdResourceData;
+import co.chimeralabs.advertiser.client.apiDTO.ImageTextureAdDTO;
+import co.chimeralabs.advertiser.client.apiDTO.ImageTextureAdsDTO;
 
 public class AdvertiserServerAPI {
+	private String url = "http://localhost:8080/advertiser/api/ads";
 	public AdvertiserServerAPI(){
 	}
 	
-	public AdResourceData getAdResourceData(){
+	public ImageTextureAdsDTO getAdResourceData(){
 		RestTemplate restTemplat = new RestTemplate();
-		String url = "http://localhost:8080/advertiserserver/publisher/api/loadad";
-		AdResourceData adResourceData;
-		String response = new String();
+		ImageTextureAdsDTO imageTextureAdsDTO;
 		try{
-			response = restTemplat.getForObject(url, String.class);
-			adResourceData = restTemplat.getForObject(url, AdResourceData.class);
+			imageTextureAdsDTO = restTemplat.getForObject(url, ImageTextureAdsDTO.class);
 		}
 		catch(RestClientException e){
-			adResourceData = new AdResourceData(e.getMessage(), e.getLocalizedMessage(), "");
+			imageTextureAdsDTO = new ImageTextureAdsDTO();
+			imageTextureAdsDTO.setErrorMsg(e.getMessage());
 		}
 		//adResourceData = new AdResourceData(response, response, response);
-		return adResourceData;
+		return imageTextureAdsDTO;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }
