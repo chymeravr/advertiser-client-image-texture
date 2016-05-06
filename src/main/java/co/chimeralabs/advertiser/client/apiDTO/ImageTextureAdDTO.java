@@ -3,8 +3,7 @@ package co.chimeralabs.advertiser.client.apiDTO;
 public class ImageTextureAdDTO {
 	private String advertiserId;
 	private String adId;
-	private String adResourceIdentifier;
-	private String adResourceFormat;
+	private String adResourceUrl;
 	private String errorMsg;
 	
 	public ImageTextureAdDTO(){
@@ -27,14 +26,6 @@ public class ImageTextureAdDTO {
 		this.adId = adId;
 	}
 
-	public String getAdResourceIdentifier() {
-		return adResourceIdentifier;
-	}
-
-	public void setAdResourceIdentifier(String adResourceIdentifier) {
-		this.adResourceIdentifier = adResourceIdentifier;
-	}
-
 	public String getErrorMsg() {
 		return errorMsg;
 	}
@@ -43,12 +34,12 @@ public class ImageTextureAdDTO {
 		this.errorMsg = errorMsg;
 	}
 
-	public String getAdResourceFormat() {
-		return adResourceFormat;
+	public String getAdResourceUrl() {
+		return adResourceUrl;
 	}
 
-	public void setAdResourceFormat(String adResourceFormat) {
-		this.adResourceFormat = adResourceFormat;
+	public void setAdResourceUrl(String adResourceUrl) {
+		this.adResourceUrl = adResourceUrl;
 	}
 	
 }
